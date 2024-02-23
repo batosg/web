@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Database Website</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Add this line -->
+<title>Local Database Website</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    input[type="text"], input[type="submit"] {
+        padding: 10px;
+        margin: 5px 0;
+    }
+    #data-list {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Local Database Website</h1>
+    <!-- Form to input data -->
+    <form id="data-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <input type="submit" value="Submit">
+    </form>
+    <!-- Section to display data -->
+    <div id="data-list">
+        <h2>Stored Data:</h2>
+        <ul id="list">
+            <!-- Data will be displayed here -->
+        </ul>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    // JavaScript for handling form submission and displaying data
+    const form = document.getElementById('data-form');
+    const list = document.getElementById('list');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+
+        // Create a new list item to display the entered data
+        const listItem = document.createElement('li');
+        listItem.textContent = `Name: ${name}, Email: ${email}`;
+
+        // Add the new list item to the list
+        list.appendChild(listItem);
+
+        // Clear the form fields after submission
+        form.reset();
+    });
+</script>
+</body>
+</html>
